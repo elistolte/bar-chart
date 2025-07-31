@@ -4,21 +4,18 @@ import BarChart from './barChartPretty'
 import BarChartFlex from './barChartPrettyFlex'
 
 const testData = [
-  { x: 'Jan', y: 11 },
-  { x: 'Feb', y: 22 },
-  { x: 'Mar', y: 33 },
-  { x: 'Apr', y: 44 },
-  { x: 'May', y: 55 },
-  { x: 'Jan', y: 66 },
-  { x: 'Feb', y: 77 },
-  { x: 'Mar', y: 45 },
-  { x: 'Apr', y: 90 },
-  { x: 'May', y: 75 },
-  { x: 'Jan', y: 65 },
-  { x: 'Feb', y: 80 },
-  { x: 'Mar', y: 45 },
-  { x: 'Apr', y: 90 },
-  { x: 'May', y: 75 }
+  { x: 'Jan', y: 430 },
+  { x: 'Feb', y: 870 },
+  { x: 'Mar', y: 290 },
+  { x: 'Apr', y: 720 },
+  { x: 'May', y: 910 },
+  { x: 'Jun', y: 380 },
+  { x: 'Jul', y: 640 },
+  { x: 'Aug', y: 560 },
+  { x: 'Sep', y: 810 },
+  { x: 'Oct', y: 470 },
+  { x: 'Nov', y: 930 },
+  { x: 'Dec', y: 350 }
 ];
 
 const App = () => {
@@ -26,9 +23,15 @@ const App = () => {
   
   const ChartComponent = useFlexLayout ? BarChartFlex : BarChart;
 
+  // Remove default body margin
+  React.useEffect(() => {
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+  }, []);
+
   return (
-    <div style={{ padding: '20px' }}>
-       <h1 style={{ fontFamily: 'Chillax' }}>My Bar Chart Test {useFlexLayout ? '(Flexbox)' : '(Legacy)'}</h1>
+    <div style={{ padding: '20px', backgroundColor: '#E8C4B8', minHeight: '100vh' }}>
+       <h1 style={{ fontFamily: 'Chillax', color: '#E8C4B8' }}>My Bar Chart Test {useFlexLayout ? '(Flexbox)' : '(Legacy)'}</h1>
       <ChartComponent data={testData} fontFamily="Chillax"/>
     </div>
   );

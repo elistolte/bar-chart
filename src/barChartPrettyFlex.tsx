@@ -17,9 +17,9 @@ const BarChart: React.FC<BarChartProps> = ({
     fontUrl = 'https://db.onlinewebfonts.com/t/5f13274ffe3e1ee77b67324cb1a9cf7c.woff2',
     width = 600,
     height = 300,
-    alpha = '#DDDDDD',
-    mod = '#FDFDFD',
-    accent = '#F1CFC3',
+    alpha = '#E8C4B8',
+    mod = '#363434',
+    accent = '#E8C4B8',
 }) => {
     
     useEffect(() => {
@@ -79,7 +79,7 @@ const BarChart: React.FC<BarChartProps> = ({
             width: '100%',
             maxWidth: width,
             fontFamily: fontFamily,
-            backgroundColor: alpha,
+            backgroundColor: 'transparent',
             position: 'relative',
             display: 'flex',
             flexDirection: 'column',
@@ -125,9 +125,9 @@ const BarChart: React.FC<BarChartProps> = ({
                             return (
                                 <div key={index} style={{
                                     width: '100%',
-                                    height: '1px',
-                                    backgroundColor: mod,
-                                    opacity: '0.8',
+                                    // height: '1px',
+                                    // backgroundColor: mod,
+                                    // opacity: '0.8',
                                     position: 'relative',
                                     display: 'flex',
                                     alignItems: 'center',
@@ -136,7 +136,7 @@ const BarChart: React.FC<BarChartProps> = ({
                                         position: 'absolute',
                                         left: `-${marginX + yAxisWidth - 10}px`,
                                         fontSize: '12px',
-                                        color: '#666',
+                                        color: mod,
                                         textAlign: 'right',
                                         width: `${yAxisWidth - 20}px`,
                                         opacity: `${currentOpacity}`,
@@ -169,9 +169,9 @@ const BarChart: React.FC<BarChartProps> = ({
                                     style={{
                                         width: `${barWidth}px`,
                                         height: `${currentHeight}px`,
-                                        backgroundColor: ' #3b82f6',
+                                        backgroundColor: mod,
                                         borderRadius: '10px 10px 0 0',
-                                        transition: 'height 0.6s cubic-bezier(0.2, 0, 0.8, 1)',
+                                        transition: 'height 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
                                         flexShrink: 0,
                                     }}
                                 />
@@ -198,7 +198,7 @@ const BarChart: React.FC<BarChartProps> = ({
                                 width: `${barWidth}px`,
                                 textAlign: 'center',
                                 fontSize: '14px',
-                                color: '#666',
+                                color: mod,
                                 opacity: `${currentOpacity}`,
                                 transition: 'opacity 1.1s ease-out',
                                 flexShrink: 0,
