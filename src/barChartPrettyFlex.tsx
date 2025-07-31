@@ -15,7 +15,7 @@ const BarChart: React.FC<BarChartProps> = ({
     data, 
     fontFamily = 'Chillax',
     fontUrl = 'https://db.onlinewebfonts.com/t/5f13274ffe3e1ee77b67324cb1a9cf7c.woff2',
-    width = 800,
+    width = 600,
     height = 300,
     alpha = '#DDDDDD',
     mod = '#FDFDFD',
@@ -134,7 +134,7 @@ const BarChart: React.FC<BarChartProps> = ({
                                 }}>
                                     <div style={{
                                         position: 'absolute',
-                                        left: `-${yAxisWidth - 10}px`,
+                                        left: `-${marginX + yAxisWidth - 10}px`,
                                         fontSize: '12px',
                                         color: '#666',
                                         textAlign: 'right',
@@ -181,13 +181,13 @@ const BarChart: React.FC<BarChartProps> = ({
                 </div>
             </div>
 
-            {/*Labels Container - flexbox layout for perfect alignment*/}
+            {/*Labels Container - match bars container alignment*/}
             <div style={{
                 display: 'flex',
+                justifyContent: 'space-evenly',
                 marginLeft: `${yAxisWidth}px`,
-                marginRight: `${marginX}px`,
-                paddingLeft: `${marginX}px`,
-                paddingRight: `${marginX}px`,
+                padding: `0 ${marginX}px`,
+                gap: `${spacing * 2}px`,
             }}>
                 {data.map((item, index) => {
                     const isAnimated = animatedBars.includes(index);
@@ -195,16 +195,13 @@ const BarChart: React.FC<BarChartProps> = ({
                     return (
                         <div key={index}
                             style={{
-                                flex: 1,
+                                width: `${barWidth}px`,
                                 textAlign: 'center',
                                 fontSize: '14px',
                                 color: '#666',
                                 opacity: `${currentOpacity}`,
                                 transition: 'opacity 1.1s ease-out',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                padding: '8px 4px',
+                                flexShrink: 0,
                             }}
                         >   
                             {item.x} {/* labels */}
