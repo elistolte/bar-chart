@@ -1,6 +1,7 @@
 import React  from "react";
 import ReactDOM from 'react-dom/client';
 import BarChart from './barChartPretty'
+import BarChartFlex from './barChartPrettyFlex'
 
 const testData = [
   { x: 'Jan', y: 11 },
@@ -21,10 +22,14 @@ const testData = [
 ];
 
 const App = () => {
+  const useFlexLayout = true; // Switch between legacy (false) and flexbox (true) layout
+  
+  const ChartComponent = useFlexLayout ? BarChartFlex : BarChart;
+
   return (
     <div style={{ padding: '20px' }}>
-       <h1 style={{ fontFamily: 'Chillax' }}>My Bar Chart Test</h1>
-      <BarChart data={testData} fontFamily="Chillax"/>
+       <h1 style={{ fontFamily: 'Chillax' }}>My Bar Chart Test {useFlexLayout ? '(Flexbox)' : '(Legacy)'}</h1>
+      <ChartComponent data={testData} fontFamily="Chillax"/>
     </div>
   );
 };
